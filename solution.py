@@ -1,8 +1,8 @@
 from PIL import Image
 import numpy as np
 import glob
-
-PATH = input('Please input PATH of img folder:  ')
+import argparse
+import os
 
 
 def diff(image1, image2):
@@ -12,14 +12,29 @@ def diff(image1, image2):
     return np.abs(image[0] - image[1]).sum()
 
 
-images = [Image.open(filename) for filename in glob.glob(PATH + '\\*.jpg')]
+parser = argparse.ArgumentParser()
+parser.add_argument('--path', required=True, help='folder with images')
+args = vars(parser.parse_args())
+img_format = '\\*.jpg'
+
+images = []
+for file in glob.glob(args['path'] + img_format):
+    path, name = os.path.split(file)
+    im = Image.open(file)
+    im.filename = name
+    images.append(im)
+
 temp = []
 for i in range(len(images)):
     if images[i] in temp:
         continue
     for j in range(len(images)):
-        if i == j or images[j] in temp:
+        if i == j:
             continue
         elif 0 <= diff(images[i], images[j]) < 30000:
             print(images[i].filename, images[j].filename)
             temp.append(images[j])
+
+
+
+
