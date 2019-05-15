@@ -27,6 +27,6 @@ You will get error:
 *solution.py: error: the following arguments are required: --path*
 
 To solve it, add path to the image folder:  
-*python solution.py --path  ./dataset
+*python solution.py --path  ./dataset*
 
 This will print filenames of similar pairs of images in a given folder
