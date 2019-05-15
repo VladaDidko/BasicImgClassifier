@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 import glob
 
-PATH = input('Please input PATH of directory with images:  ')
+PATH = input('Please input PATH of img folder:  ')
 
 
 def diff(image1, image2):
@@ -20,12 +20,6 @@ for i in range(len(images)):
     for j in range(len(images)):
         if i == j or images[j] in temp:
             continue
-        elif diff(images[i], images[j]) == 0:
-            print("Duplicate: ", images[i].filename, images[j].filename)
-            temp.append(images[j])
-        elif 0 <= diff(images[i], images[j]) < 10000:
-            print("Modification: ", images[i].filename, images[j].filename)
-            temp.append(images[j])
-        elif 10000 <= diff(images[i], images[j]) < 30000:
-            print("Similar: ", images[i].filename, images[j].filename)
+        elif 0 <= diff(images[i], images[j]) < 30000:
+            print(images[i].filename, images[j].filename)
             temp.append(images[j])
