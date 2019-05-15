@@ -9,10 +9,10 @@ There are three types of img similarity:
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ## Prerequisites
-You need Python 3.7, pip to be installed
-Also you need to install the following packages:
-pip install Pillow
-pip install numpy
+You need Python 3.7, pip to be installed  
+Also you need to install the following packages:  
+*pip install Pillow*  
+*pip install numpy*
 
 After cloning or downloading the project open command prompt and change the directory to the project folder:
 
