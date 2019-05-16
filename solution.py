@@ -24,9 +24,10 @@ for file in glob.glob(args['path'] + img_format):
     im.filename = name
     images.append(im)
 
+
 for i in range(len(images)):
     for j in range(i+1, len(images)):
         if i == j:
             continue
-        if 0 <= diff(images[i], images[j]) < 30000:
+        if 0 <= diff(images[i], images[j]) < 26000:
             print(images[i].filename, images[j].filename)
